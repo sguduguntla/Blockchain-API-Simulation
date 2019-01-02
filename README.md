@@ -34,3 +34,18 @@ To run the app locally:
 | `/transaction/:id` | **GET** | Returns the **transaction** and **block** with the specified transaction **id**
 | `/address/:address` | **GET** | Returns the balance and transactions of the specified user **address**
 
+## Blockchain Class
+
+### Instance Variables
+
+```javascript
+constructor() {
+        this.chain = []
+        this.pendingTransactions = []
+
+        this.nodeURL = nodeURL;
+        this.networkNodes = [];
+        //Genesis Block
+        this.createBlock(0, '0', '0');
+    }```
+
