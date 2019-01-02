@@ -54,9 +54,6 @@ constructor() {
 
 ### Available Functions
 
-[createBlock(nonce, prevHash, hash)](#createblock(nonce,-prevHash,-hash))
-
-
 #### createBlock(nonce, prevHash, hash)
 
 Creates a new block with the specified **nonce**, **prevHash**, and **hash**
