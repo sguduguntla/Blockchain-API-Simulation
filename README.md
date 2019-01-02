@@ -2,6 +2,8 @@
 
 A proof of concept simulation of a blockchain hosted on a decentralized network. 
 
+[Go to Real Cool Heading section](#default-constructor)
+
 To run the app locally:
 
 1. Clone the repository and run ```npm install``` to install all the necessary **node_modules** for running the application.
