@@ -1,5 +1,7 @@
 # Blockchain Simulation API powered by NodeJS & Express
 
+A proof of concept simulation of a blockchain hosted on a decentralized network. 
+
 To run the app locally:
 
 1. Clone the repository and run ```npm install``` to install all the necessary **node_modules** for running the application.
@@ -34,18 +36,120 @@ To run the app locally:
 | `/transaction/:id` | **GET** | Returns the **transaction** and **block** with the specified transaction **id**
 | `/address/:address` | **GET** | Returns the balance and transactions of the specified user **address**
 
-## Blockchain Class
+## Blockchain Class (blockchain.js)
 
-### Instance Variables
+The Blockchain class is a prototype data abstraction for a blockchain. 
 
+#### Default Constructor
 ```javascript
 constructor() {
-        this.chain = []
-        this.pendingTransactions = []
-
-        this.nodeURL = nodeURL;
-        this.networkNodes = [];
+        this.chain = [] //A list of all the blocks in the blockchain
+        this.pendingTransactions = [] //All the pending transactions before the block has been mined
+        this.nodeURL = nodeURL; //The current address of the node
+        this.networkNodes = []; //A list of all the other nodes in the decentralized network
         //Genesis Block
         this.createBlock(0, '0', '0');
-    }```
+}
+```
+
+### Available Functions
+
+#### createBlock(nonce, prevHash, hash)
+
+Creates a new block with the specified **nonce**, **prevHash**, and **hash**
+
+* **nonce** (Number used once) - unique number to be found when mining for the block
+* **prevHash** - the hash of the previous block in the chain
+* **hash** - the hash of the current block
+
+---
+
+#### getPrevBlock()
+
+Returns the previous block in the chain
+
+---
+
+#### createTransaction(amount, sender, recipient)
+
+Creates a new transaction with the specified **sender**, **recipient**, and **amount**
+
+* **amount** - the amount of value to be sent to the recipient
+* **sender** - the address of the sender
+* **recipient** - the address of the recipient
+
+---
+
+#### addTransactionToPendingTransactions(transaction)
+
+Adds the specified **transaction** to the pending transactions of the blockchain
+
+* **transaction** - a transaction object (See instance variable details)
+
+---
+
+#### hash(prevHash, curBlockData, nonce)
+
+Creates a **SHA256** encryption hash for the specified **prevHash**, **curBlockData**, and **nonce**
+
+* **prevHash** - the hash of the previous block in the chain
+* **curBlockData** - 
+```javascript
+{
+   transactions: [], //The current transactons in the block
+   index: 0 //index of the block in the chain
+}
+```
+* **nonce** (Number used once) - unique number to be found when mining for the block
+
+---
+
+#### proofOfWork(prevHash, curBlockData)
+
+Finds the **nonce** associated with the specified **prevHash** and **curBlockData** that begins with "0000"
+
+* **prevHash** - the hash of the previous block in the chain
+* **curBlockData** - 
+```javascript
+{
+   transactions: [], //The current transactons in the block
+   index: 0 //index of the block in the chain
+}
+```
+
+---
+
+#### chainIsValid(blockchain)
+
+Returns true or false based on whether the specified **blockchain** has matching hashes and previous hashes as well as a hash that starts with "0000"
+
+* **blockchain** - a list of all blocks in the blockchain
+
+---
+
+#### getBlock(hash)
+
+Returns the block with the specified **hash**
+
+* **hash** - the hash of the current block
+
+---
+
+#### getTransaction(id)
+
+Returns the **transaction** and **block** with the specified transaction **id**
+
+* **id** - The unique id of the transaction
+
+---
+
+#### getAddressData(address)
+
+Returns the balance and transactions of the specified user **address**
+
+* **address** - A unique address of the user
+
+
+
+
 
