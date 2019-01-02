@@ -4,6 +4,10 @@ To run the app locally:
 
 1. Clone the repository and run ```npm install``` to install all the necessary **node_modules** for running the application.
 2. Simulate the project being run on multiple devices by running ```npm run node_1```, ```npm run node_2```, ```npm run node_3```, ```npm run node_4```, and ```npm run node_5``` in separate terminal tabs. 
+3. More addresses can be added by adding the following line(s) to the **package.json** file:
+
+```json "node_6": "nodemon --watch dev -e js dev/networkNode.js [number] http://localhost:[number]" ```
+
 
 ## API Root URLS:
 
