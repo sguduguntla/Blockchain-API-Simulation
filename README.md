@@ -7,11 +7,11 @@ To run the app locally:
 
 ## API Root URLS:
 
-node_1 --> http://localhost:3001
-node_2 --> http://localhost:3002 
-node_3 --> http://localhost:3003
-node_4 --> http://localhost:3004
-node_5 --> http://localhost:3005
+* node_1 --> http://localhost:3001
+* node_2 --> http://localhost:3002 
+* node_3 --> http://localhost:3003
+* node_4 --> http://localhost:3004
+* node_5 --> http://localhost:3005
 
 ## Available API Endpoints:
 
