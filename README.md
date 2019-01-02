@@ -84,7 +84,16 @@ Creates a new transaction with the specified **sender**, **recipient**, and **am
 
 Adds the specified **transaction** to the pending transactions of the blockchain
 
-* **transaction** - a transaction object (See instance variable details)
+* **transaction** - a transaction object
+
+```javascript
+{
+    amount,
+    sender,
+    recipient,
+    id
+}
+```
 
 ---
 
